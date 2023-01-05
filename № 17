@@ -1,0 +1,16 @@
+with open('17.txt') as file:
+    data = []
+    answer1 = 0
+    answer2 = []
+    for i in file:
+        data.append(int(i))
+    for i in range(len(data) - 1):
+        if (data[i] < 0) or (data[i + 1] < 0) or (data[i] < 0 and data[i + 1] < 0):
+            answer1 += 1
+            answer2.append(data[i] * data[i + 1])
+    got = -21304347  # число получается с помощью print
+    print(answer1)
+    for i in answer2:
+        if i > got:
+            got = i
+    print(got)
