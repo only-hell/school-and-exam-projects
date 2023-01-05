@@ -1,0 +1,12 @@
+with open('24.txt') as file:
+    data = file.readline().replace('G', '@').replace('W', '@').replace('P', '@')
+    data = data.replace('E', '@').replace('R', '@').replace('T', '@').replace('Y', '@').replace('U', '@')\
+        .replace('I', '@').replace('O', '@').replace('A', '@').replace('S', '@').replace('D', '@').replace('F', '@')\
+        .replace('H', '@').replace('J', '@').replace('K', '@').replace('L', '@').replace('Z', '@').replace('X', '@')\
+        .replace('C', '@').replace('V', '@').replace('B', '@').replace('N', '@').replace('M', '@')
+    k = data.split('@')
+    g = []
+    for i in k:
+        g.append(len(i))
+    print(max(g))
+    
