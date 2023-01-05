@@ -1,0 +1,5 @@
+for i in range(39, 10 ** 8, 39):
+    n = str(i)
+    if n[0] == '1' and n[1] == '2' and n[-1] == '9' and n[-2] == '8' and n[-3] == '7' and n[-14] == '6':
+        print(i, i // 39)
+        
