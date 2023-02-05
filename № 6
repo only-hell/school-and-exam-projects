@@ -1,5 +1,5 @@
 from turtle import *
-
+speed(10000)
 left(90)
 for i in range(16):
     left(36)
