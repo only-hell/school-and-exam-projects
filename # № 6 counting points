@@ -1,0 +1,24 @@
+from turtle import *
+speed(1000)
+color('black', 'red')
+k = 50
+begin_fill()
+left(90)
+for i in range(5):
+    left(36)
+    forward(4 * k)
+    left(36)
+end_fill()
+
+canvas = getcanvas()
+n = 0
+for x in range(-100 * k, 100 * k, k):
+    for y in range(-100 * k, 100 * k, k):
+        item = canvas.find_overlapping(x, y, x, y)
+        # if len(item) == 1 and item[0] == 5: в том случае когда точки на линиях не учитываются
+        if len(item) >= 1:
+            n += 1
+print(n)
+done()
+exit()
+
