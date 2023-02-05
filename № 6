@@ -8,12 +8,12 @@ for i in range(16):
     # цикл движений черепахи
 penup()
 # черепаха не рисует
-for x in range(10):
-    for y in range(10):
-        goto(x * 50, y * 50)
-        dot(5)
+for x in range(-10, 10):
+    for y in range(-10, 10):
+        setpos(x * 50, y * 50)
+        dot(4)
         # создание точек по ДСК размером 5 пикс
-        # если поле не охватывает фигуру полностью нужно изменять знаки х, у в goto()
+
 done()
 # методы Turtle:
 # forward() / backward() - движение черепахи
