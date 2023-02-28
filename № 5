@@ -12,3 +12,18 @@ for n in range(1, 100):
     # исходное число
         break
 
+---------------------------------------------
+
+a = []
+for n in range(100, 3000):
+    r = bin(n)[2:]
+    r1 = r[1:]
+    r2 = r1.replace('0', '')
+    if r2 != '':
+        r3 = int(r2, 2)
+    else:
+        r3 = 0
+    p = n - r3
+    if p not in a:
+        a.append(p)
+print(len(a))
