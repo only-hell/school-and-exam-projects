@@ -1,4 +1,4 @@
-letters = 'ABCDX'
+letters = 'ABCD'
 s = []
 # количество циклов равно количеству букв в слове
 for a in letters:
