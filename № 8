@@ -1,12 +1,13 @@
 letters = 'ABCD'
 s = []
 # количество циклов равно количеству букв в слове
-for a in letters:
-    for b in letters:
-        for c in letters:
-            for d in letters:
-                word = a + b + c + d
-                # в слове только 1 вхождение Х
-                if word.count('X') == 1:
-                    s.append(word)
+for i1 in letters:
+    for i2 in letters:
+        for i3 in letters:
+            for i4 in letters:
+               for i5 in letters:
+                   word = a + b + c + d
+                   # в слове только 1 вхождение Х
+                   if word.count('X') == 1:
+                       s.append(word)
 print(len(s))
