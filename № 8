@@ -14,11 +14,27 @@ print(len(s))
 
 
 -----------------------------------------------------------
-from itertools import product
-words = product('abcd', repeat = 5)
+from itertools import *
+
+words = product('abcd', repeat=5)
+# там где неважно количество повторений букв
 k = set()
 for i in words:
     word = ''.join(i)
     if word.count('d') == 1:
+        k.add(word)
+print(len(k))
+
+-----------------------------------------------------------
+from itertools import *
+
+words = permutations('abcd')
+# там где используются только то количество 
+# повторений каждой буквы строки, какое есть в исходном слове
+# обычно используется в заданиях где переставляются буквы слова
+k = set()
+for i in words:
+    word = ''.join(i)
+    if k:
         k.add(word)
 print(len(k))
