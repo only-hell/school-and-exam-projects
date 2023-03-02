@@ -1,5 +1,5 @@
-letters = 'ABCD'
-s = []
+letters = 'abcd'
+s = set()
 # количество циклов равно количеству букв в слове
 for i1 in letters:
     for i2 in letters:
@@ -8,6 +8,17 @@ for i1 in letters:
                for i5 in letters:
                    word = a + b + c + d
                    # в слове только 1 вхождение Х
-                   if word.count('X') == 1:
-                       s.append(word)
+                   if word.count('d') == 1:
+                       s.add(word)
 print(len(s))
+
+
+-----------------------------------------------------------
+from itertools import product
+words = product('abcd', repeat = 5)
+k = set()
+for i in words:
+    word = ''.join(i)
+    if word.count('d') == 1:
+        k.add(word)
+print(len(k))
