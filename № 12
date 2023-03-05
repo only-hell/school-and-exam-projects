@@ -1,6 +1,6 @@
 def prime_number(a):
-    for d in range(2, a):
-        if a % d == 0:
+    for i in range(2, a):
+        if a % i == 0:
             return False
     return True
 
@@ -8,17 +8,17 @@ def prime_number(a):
 for n in range(100):
 
 
-    s = '>' + 39 * '0' + n * '1' + 39 * '2'
-    while '>1' in s or '>2' in s or '>0' in s:
+    s = '>' + 16 * '1' + n * '2' + 16 * '3'
+    while '>1' in s or '>3' in s or '>2' in s:
         if '>1' in s:
-            s = s.replace('>1', '22>', 1)
+            s = s.replace('>1', '1>', 1)
+        if '>3' in s:
+            s = s.replace('>3', '>2', 1)
         if '>2' in s:
-            s = s.replace('>2', '2>', 1)
-        if '>0' in s:
-            s = s.replace('>0', '1>', 1)
+            s = s.replace('>2', '>1', 1)
+
+    
     summa = sum([int(i) for i in s if i != '>'])
-    
-    
     if prime_number(summa):
         print(n)
         break
