@@ -28,3 +28,21 @@ for i in f:
     if i == 2:
         a.append(i)
 print(len(a))
+
+-----------------------------------
+from functools import lru_cache
+@lru_cache(None)
+def f(n):
+    if n <= 10:
+        return n
+    if n >= 10000:
+        return 1
+    if n % 2 == 0:
+        return n % 10 + f(n+ 2)
+    if n % 2 != 0:
+        return f(n -2) - (n - 1) % 10
+for i in range(10000, 4499, -2):
+    f(i)
+for i in range(9, 5516, 2):
+    f(i)    
+print(f(4500) + f(5515))
