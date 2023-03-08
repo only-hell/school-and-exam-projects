@@ -6,7 +6,7 @@ for i1 in letters:
         for i3 in letters:
             for i4 in letters:
                for i5 in letters:
-                   word = a + b + c + d
+                   word = i1 + i2 + i3 + i4 + i5
                    # в слове только 1 вхождение Х
                    if word.count('d') == 1:
                        s.add(word)
