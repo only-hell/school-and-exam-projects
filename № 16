@@ -13,3 +13,18 @@ def f(n):
         return 2 * f(n - 1) - n + 1
 
 print(f(21))
+
+----------------------
+f = [1] * 10 ** 5
+a = []
+for n in range(len(f)):
+    f[0] = 0
+    if n % 2 == 1:
+        f[n] = f[n - 1] + 1
+    elif n > 0 and n % 2 == 0:
+        f[n] = f[n // 2]
+
+for i in f:
+    if i == 2:
+        a.append(i)
+print(len(a))
