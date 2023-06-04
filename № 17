@@ -14,3 +14,15 @@ with open('17.txt') as file:
         if i > got:
             got = i
     print(got)
+---------------------------------------------------------------------------
+ f = open('17.txt')
+ a = [int(i) for i in f/readlines()]
+ f.close()
+ m = max( i for i in a if i % 100 == 12) ** 2
+ k = 0
+ maxx = 0
+ for i in range(len(a) - 1):
+     if (a[i] % 100 == 12) != (a[i + 1] % 100 == 12) and (a[i] + a[i + 1]) ** 2 < m:
+         k += 1
+         maxx = max(maxx, a[i])
+print(k, maxx)         
