@@ -8,4 +8,28 @@ for a in range(1, 1000):
     if flag:
         print(a)
         break
-        
+       
+ -----------------------------------------------------
+ def f(x):
+    a = set()
+    for i in range(2, int(x ** 0.5) + 1):
+        if x % i == 0:
+            a.add(i)
+            a.add(x // i)
+    return len(a)
+
+
+
+for m in range(1, 1000):
+    s = '>' + '1' * 15 + '2' * 35 +'3' * m
+    while ('>1' in s) or ('>2' in s) or ('>3' in s):
+            if ('>1' in s):
+                s = s.replace('>1', '2>', 1)
+            if ('>2' in s):
+                s = s.replace('>2', '3>', 1)
+            if ('>3' in s):
+                s = s.replace('>3', '11>', 1)
+    sc = s.count('1') + s.count('2') * 2 + s.count('3') * 3
+    if f(sc) == 3:
+        print(m)
+        break
