@@ -1,0 +1,81 @@
+def game(s, th, mh):
+    if a +s >= 150:
+         return th % 2 == mh % 2
+    if th == mh:
+        return False
+        sp = []
+        sp.append(game(a, s + 1, th + 1, mh))
+        sp.append(game(a, s + 2, th + 1, mh))
+        sp.append(game(a, s + a, th + 1, mh))
+# 1 куча
+    if (th + 1) % 2 == mh % 2:
+        return any(sp)
+    else:
+        return all(sp)
+for s in range(1, 89):
+    for h in range(1, 5):
+        if game(61, s, 0, h):
+            print(s, h)
+            break
+    -------------------------------------------------------------------
+ def game(s1, s2, n_hoda, max_hod):
+    if s1 + s2 >= 165:
+        return n_hoda % 2 == max_hod % 2
+    if n_hoda == max_hod:
+        return False
+    sp = []
+    # 2 кучи
+    sp.append(game(a, s + 1, n_hoda + 1, max_hod))
+    sp.append(game(a, s * 2, n_hoda + 1, max_hod))
+
+    sp.append(game(a + 1, s, n_hoda + 1, max_hod))
+    sp.append(game(a * 2, s, n_hoda + 1, max_hod))
+    if (n_hoda + 1) % 2 == max_hod % 2:
+        return any(sp)
+    else:
+        return all(sp)
+       # меняем на any когда неудачный ход
+for s in range(1, 165):
+    for h in range(1, 5):
+        if game(17, s, 0, h):
+            # 17 камней известно водной куче
+            print(s, h)
+            break
+------------------------------------------------------------------------
+def game(s, th, mh):
+    if s >= 165:
+         return th % 2 == mh % 2
+   
+        sp = []
+        sp.append(game(s + 1, th + 1, mh))
+        sp.append(game(s + 4, th + 1, mh))
+        sp.append(game(s * 2, th + 1, mh))
+
+    if (th + 1) % 2 == mh % 2:
+        return any(sp)
+    else:
+        return all(sp)
+for s in range(1, 165):
+    for h in range(1, 4):
+        if game(s, 0, h):
+            print(s, h)
+            break
+--------------------------------------------------------------------------------
+def game(s, n_hoda, max_hod):
+    if s >= 165:
+        return n_hoda % 2 == max_hod % 2
+    if n_hoda == max_hod:
+        return False
+    sp = []
+    sp.append(game(s + 1, n_hoda + 1, max_hod))
+    sp.append(game(s * 2, n_hoda + 1, max_hod))
+    # 1 куча
+    if (n_hoda + 1) % 2 == max_hod % 2:
+        return any(sp)
+    else:
+        return all(sp)
+for s in range(1, 165):
+    for h in range(1, 5):
+        if game(s, 0, h):
+            print(s, h)
+            break
