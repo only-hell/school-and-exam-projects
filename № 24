@@ -100,4 +100,20 @@ for i in range (n):
       p = [int (x) for x in f.readline ().split()]
       s = [a + b for a in s for b in p] 
       s = {x%3:x for x in sorted(s)}.values()
-print (max (x for x in s if x % 3 == 0)) 
+print (max (x for x in s if x % 3 == 0))
+________________________________________
+f = open('24.txt')
+n = f.readline() 
+maxx = list()
+for s in f:
+   a = list(map(int,s.split())).sort()
+   a.sort()
+   maxx.append(a [1])
+m = sorted (maxx, reverse=True)
+s = sum(m)
+for i in range(len (m), 0, −1):
+     if s % 33 != 0:
+         print(s)
+         break
+     else:
+         s = m[i-1] 
