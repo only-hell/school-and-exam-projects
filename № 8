@@ -38,3 +38,9 @@ for i in words:
     if k:
         k.add(word)
 print(len(k))
+----------------------------
+from intertools import *
+alf='abcde'
+n=0
+for i in set (permutations (alf, len(alf))):
+   s=''.join(i) 
