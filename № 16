@@ -30,6 +30,10 @@ for i in f:
 print(len(a))
 
 -----------------------------------
+#(n) = a, xpи n ≤ 10
+#F(n) = 1, пpи п ≥ 10000
+#F(n) = n 10 4F (0+2), при 10 < n< 10000 и четком значении
+#F(n) F(n-2) (n-1) + 10, при 10 < а < 10000 
 from functools import lru_cache
 @lru_cache(None)
 def f(n):
