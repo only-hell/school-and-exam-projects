@@ -43,4 +43,7 @@ from intertools import *
 alf='abcde'
 n=0
 for i in set (permutations (alf, len(alf))):
-   s=''.join(i) 
+   s=''.join(i)
+   if s[4:6] == 'ab':
+      n += 1
+print(n) 
