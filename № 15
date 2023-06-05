@@ -33,3 +33,22 @@ for m in range(1, 1000):
     if f(sc) == 3:
         print(m)
         break
+—-----------------------------------
+def f(x, a):
+  return (x % 2 == 0)
+
+
+for a in range(1, 1000): 
+    flag = True
+    for x in range(1, 1000): 
+        if not(f(x, a)): 
+             flag = False
+             break
+    if flag: 
+        print(a)
+        break
+       
+ 
+
+
+ 
