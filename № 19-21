@@ -81,10 +81,13 @@ for s in range(1, 165):
             break
 ---------------------------------------------------
 def f(x,y,c,m):
+#c - номер хода
+# m - макс ход
     if x + y >= 52: return c%2 == m%2
     if c == m: return False 
     d = [f(x+2,y,c+1,m),f(x3,y,c+1,m),f(x,y+2,c+1,m),f(x,y3,c+1,m)]
     return any(d) if c%2 != m%2 else any(d)
+    # 2 any - неудачный ход меняется на all - все исходы 
 
 for s in range(1,47):
     for m in range(1,6):
