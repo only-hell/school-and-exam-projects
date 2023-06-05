@@ -79,3 +79,26 @@ for s in range(1, 165):
         if game(s, 0, h):
             print(s, h)
             break
+---------------------------------------------------
+def f(x,y,c,m):
+    if x + y >= 52: return c%2 == m%2
+    if c == m: return False 
+    d = [f(x+2,y,c+1,m),f(x3,y,c+1,m),f(x,y+2,c+1,m),f(x,y3,c+1,m)]
+    return any(d) if c%2 != m%2 else any(d)
+
+for s in range(1,47):
+    for m in range(1,6):
+        if f(5,s,0,m):
+            print(s,m)
+            break"""
+'''def f(x,y,c,m):
+    if x + y >= 52: return c%2 == m%2
+    if c == m: return False 
+    d = [f(x+2,y,c+1,m),f(x3,y,c+1,m),f(x,y+2,c+1,m),f(x,y3,c+1,m)]
+    return any(d) if c%2 != m%2 else any(d)
+
+for s in range(1,47):
+    for m in range(1,6):
+        if f(5,s,0,m):
+            print(s,m)
+            break
