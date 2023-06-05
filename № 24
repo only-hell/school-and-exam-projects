@@ -9,8 +9,8 @@ with open('24.txt') as file:
     for i in k:
         g.append(len(i))
     print(max(g))
-    ----------------------------------------------------------------------------------------------
-    s=open('24.txt').readline().replace('4','2').replace('3','1').replace('5','1')
+    ---------------------------------------------------------------------------------------------- 
+ s=open('24.txt').readline().replace('4','2').replace('3','1').replace('5','1')
 a='21'
 k=0
 while a in s:
@@ -91,4 +91,13 @@ for s in f:
         for j in a:
                k = max(k, s.count(j))
         m = max(k, m)
-print(m) 
+print(m)
+---------------------------------------
+f = open ('24.txt') 
+n = int (f.readline ())
+s = [0]
+for i in range (n):
+      p = [int (x) for x in f.readline ().split()]
+      s = [a + b for a in s for b in p] 
+      s = {x%3:x for x in sorted(s)}.values()
+print (max (x for x in s if x % 3 == 0)) 
