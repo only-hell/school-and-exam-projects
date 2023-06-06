@@ -11,39 +11,3 @@ for i1 in letters:
                    if word.count('d') == 1:
                        s.add(word)
 print(len(s))
-
-
------------------------------------------------------------
-from itertools import *
-
-words = product('abcd', repeat=5)
-# там где неважно количество повторений букв
-k = set()
-for i in words:
-    word = ''.join(i)
-    if word.count('d') == 1:
-        k.add(word)
-print(len(k))
-
------------------------------------------------------------
-from itertools import *
-
-words = permutations('abcd')
-# там где используются только то количество 
-# повторений каждой буквы строки, какое есть в исходном слове
-# обычно используется в заданиях где переставляются буквы слова
-k = set()
-for i in words:
-    word = ''.join(i)
-    if k:
-        k.add(word)
-print(len(k))
-----------------------------
-from intertools import *
-alf='abcde'
-n=0
-for i in set (permutations (alf, len(alf))):
-   s=''.join(i)
-   if s[4:6] == 'ab':
-      n += 1
-print(n) 
