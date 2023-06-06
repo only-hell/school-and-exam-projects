@@ -6,7 +6,6 @@ def prime_number(a):
 
 
 for n in range(100):
-
     s = '>' + 16 * '1' + n * '2' + 16 * '3'
     while '>1' in s or '>3' in s or '>2' in s:
         if '>1' in s:
@@ -15,22 +14,14 @@ for n in range(100):
             s = s.replace('>3', '>2', 1)
         if '>2' in s:
             s = s.replace('>2', '>1', 1)
-
     b = []
     for j in s:
         if j != '>':
             b.append(int(j))
     summa = sum(b)
-
     if prime_number(summa):
         print(n)
         break
------------------------------------------------------------
-s = '1' * 101
-while '111' in s:
-    s = s.replace('111', '22', 1)
-    s = s.replace('222', '11', 1)
-print(s)
 ---------------------------------------------------------
 s = '>' + 20 * '1' + 15 * '2' + 40 * '3'
 while '>1' in s or '>2' in s or '>3' in s:
