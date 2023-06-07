@@ -15,6 +15,23 @@ def f(n):
 print(f(21))
 
 ----------------------
+# ДЛЯ РАБОТЫ С 2МЯ ФУНКЦИЯМИ
+def f(n):
+    if n == 1:
+        return 1
+    if n > 1:
+        return 2 * f(n - 1) + g(n - 1) - 2 * n
+
+
+def g(n):
+    if n == 1:
+        return 1
+    if n > 1:
+        return f(n - 1) + 2 * g(n - 1) + n
+
+
+print(f(14) + g(14))
+---------------------------------
 from functools import lru_cache
 
 
@@ -35,19 +52,3 @@ for i in range(10000, 4499, -2):
 for i in range(9, 5516, 2):
     f(i)
 print(f(4500) + f(5515))
-------------------------------------------------------
-def f(n):
-    if n == 1:
-        return 1
-    if n > 1:
-        return 2 * f(n - 1) + g(n - 1) - 2 * n
-
-
-def g(n):
-    if n == 1:
-        return 1
-    if n > 1:
-        return f(n - 1) + 2 * g(n - 1) + n
-
-
-print(f(14) + g(14))
