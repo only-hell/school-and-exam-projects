@@ -22,3 +22,29 @@ for A in range(1000):
             break
     if flag:
         print(A)
+----------------------------------------------------
+# строки наиб
+# p = [25;50], q =[32; 47]
+p = list(range(25, 51))
+q = list(range(32, 48))
+A = list(range(1000))
+for x in range(1000):
+    if not (((not(x in A)) <= (x in p)) <= ((x in A) <= (x in q))):
+        A.remove(x)
+print(A)
+# 32 - в условии
+# 47 - ближайшее -23
+# 47 - 32 = 15
+---------------------------------------------------
+# строки наим
+# p = [8;39], q =[23; 58]
+p = list(range(8, 40))
+q = list(range(23, 59))
+A = []
+for x in range(1000):
+    if not (((x in p) or (x in A)) <= ((x in q) or (x in A))):
+        A.append(x)
+print(A)
+# 8 - в условии
+# 22 - ближайшее -23
+# 23- 8 = 15
