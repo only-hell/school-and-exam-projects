@@ -1,107 +1,157 @@
-def game(s, th, mh):
-    if a +s >= 150:
-         return th % 2 == mh % 2
-    if th == mh:
-        return False
-        sp = []
-        sp.append(game(a, s + 1, th + 1, mh))
-        sp.append(game(a, s + 2, th + 1, mh))
-        sp.append(game(a, s + a, th + 1, mh))
-# 1 куча
-    if (th + 1) % 2 == mh % 2:
-        return any(sp)
-    else:
-        return all(sp)
-for s in range(1, 89):
-    for h in range(1, 5):
-        if game(61, s, 0, h):
-            print(s, h)
-            break
-    -------------------------------------------------------------------
- def game(s1, s2, n_hoda, max_hod):
-    if s1 + s2 >= 165:
-        return n_hoda % 2 == max_hod % 2
-    if n_hoda == max_hod:
-        return False
-    sp = []
-    # 2 кучи
-    sp.append(game(a, s + 1, n_hoda + 1, max_hod))
-    sp.append(game(a, s * 2, n_hoda + 1, max_hod))
+# победа от 30 кам
+# нечетный ход(1,3...) - Петя, четный(2,4...) - Ваня
+def game(s, c, m):
+    if s >= 30: return c % 2 == m % 2
+    h = [game(s + 2, c + 1, m), game(s + 3, c + 1, m), game(s * 2, c + 1, m)]
+    if c == m: return 0
+    return any(h) if (c + 1) % 2 == m % 2 else all(h)
 
-    sp.append(game(a + 1, s, n_hoda + 1, max_hod))
-    sp.append(game(a * 2, s, n_hoda + 1, max_hod))
-    if (n_hoda + 1) % 2 == max_hod % 2:
-        return any(sp)
-    else:
-        return all(sp)
-       # меняем на any когда неудачный ход
-for s in range(1, 165):
-    for h in range(1, 5):
-        if game(17, s, 0, h):
-            # 17 камней известно водной куче
-            print(s, h)
-            break
-------------------------------------------------------------------------
-def game(s, th, mh):
-    if s >= 165:
-         return th % 2 == mh % 2
-   
-        sp = []
-        sp.append(game(s + 1, th + 1, mh))
-        sp.append(game(s + 4, th + 1, mh))
-        sp.append(game(s * 2, th + 1, mh))
 
-    if (th + 1) % 2 == mh % 2:
-        return any(sp)
-    else:
-        return all(sp)
-for s in range(1, 165):
-    for h in range(1, 4):
-        if game(s, 0, h):
-            print(s, h)
+for s in range(1, 30):
+    for m in range(1, 5):
+        if game(s, 0, m) == 1:
+            print(s, m)
             break
---------------------------------------------------------------------------------
-def game(s, n_hoda, max_hod):
-    if s >= 165:
-        return n_hoda % 2 == max_hod % 2
-    if n_hoda == max_hod:
-        return False
-    sp = []
-    sp.append(game(s + 1, n_hoda + 1, max_hod))
-    sp.append(game(s * 2, n_hoda + 1, max_hod))
-    # 1 куча
-    if (n_hoda + 1) % 2 == max_hod % 2:
-        return any(sp)
-    else:
-        return all(sp)
-for s in range(1, 165):
-    for h in range(1, 5):
-        if game(s, 0, h):
-            print(s, h)
-            break
----------------------------------------------------
-def f(x,y,c,m):
-#c - номер хода
-# m - макс ход
-    if x + y >= 52: return c%2 == m%2
-    if c == m: return False 
-    d = [f(x+2,y,c+1,m),f(x3,y,c+1,m),f(x,y+2,c+1,m),f(x,y3,c+1,m)]
-    return any(d) if c%2 != m%2 else any(d)
-    # 2 any - неудачный ход меняется на all - все исходы 
+------------------------------------------------------------------------------
+def game(s, c, m):
+    if 43 <= s <= 72: return c % 2 == m % 2
+    if s > 72: return c % 2 != m % 2
+    h = [game(s + 1, c + 1, m), game(s * 3, c + 1, m), game(s * 2, c + 1, m)]
+    if c == m: return 0
+    return any(h) if (c + 1) % 2 == m % 2 else all(h)
 
-for s in range(1,47):
-    for m in range(1,6):
-        if f(5,s,0,m):
-            print(s,m)
-            break"""
-'''def f(x,y,c,m):
-    if x + y >= 52: return c%2 == m%2
-    if c == m: return False 
-    d = [f(x+2,y,c+1,m),f(x3,y,c+1,m),f(x,y+2,c+1,m),f(x,y3,c+1,m)]
-    return any(d) if c%2 != m%2 else any(d)
 
-for s in range(1,47):
-    for m in range(1,6):
-        if f(5,s,0,m):
-            print(s,m)
+for s in range(1, 43):
+    for m in range(1, 5):
+        if game(s, 0, m) == 1:
+            print(s, m)
             break
+------------------------------------------------------------------------------
+# 2 кучи
+# суммарно должно быть 74
+# в первой куче 7 кам, во второй S
+def game(s1, s2, c, m):
+    if s1 + s2 >= 74: return c % 2 == m % 2
+    h = [game(s1 + 2, s2, c + 1, m), game(s1, s2 + 2, c + 1, m), game(s1 * 2, s2, c + 1, m), game(s1, s2 * 2, c + 1, m)]
+    if c == m: return 0
+    return any(h) if (c + 1) % 2 == m % 2 else all(h)
+    # 2 all меняем на any при каком то конкретном ходе
+
+
+for s2 in range(1, 67):
+    for m in range(1, 5):
+        if game(7, s2, 0, m) == 1:
+            print(s2, m)
+            break
+
+------------------------------------------------------------------------------
+# победа < 20 кам
+# в 1 куче - 1о кам
+def game(s1, s2, c, m):
+    if s1 + s2 <= 20: return c % 2 == m % 2
+    h = [game(s1 - 1, s2, c + 1, m), game(s1, s2 - 1, c + 1, m), game((s1 + 1) // 2, s2, c + 1, m), game(s1, (s2 + 1) // 2, c + 1, m)]
+    if c == m: return 0
+    return any(h) if (c + 1) % 2 == m % 2 else all(h)
+
+
+for s2 in range(11, 1000):
+    for m in range(1, 5):
+        if game(10, s2, 0, m) == 1:
+            print(s2, m)
+            break
+------------------------------------------------------------------------------
+# p - предыдущий ход соперника
+def game(s, p, c, m):
+    if s >= 43: return c % 2 == m % 2
+    h = []
+    if p != '+1': h += [game(s + 1, '+1', c + 1, m)]
+    if p != '+2': h += [game(s + 2, '+2', c + 1, m)]
+    if p != '*2': h += [game(s * 2, '*2', c + 1, m)]
+    if c == m: return 0
+    return any(h) if (c + 1) % 2 == m % 2 else all(h)
+
+
+for s in range(1, 43):
+    for m in range(1, 5):
+        if game(s, '', 0, m) == 1:
+            print(s, m)
+            break
+------------------------------------------------------------------------------
+def game(s, p0, p1, c, m):
+    if s >= 21: return c % 2 == m % 2
+    h = []
+    if p1 != '+1': h += [game(s + 1, '+1', p0, c + 1, m)]
+    if p1 != '+2': h += [game(s + 2, '+2', p0, c + 1, m)]
+    if p1 != '*2': h += [game(s * 2, '*2', p0, c + 1, m)]
+    if c == m: return 0
+    return any(h) if (c + 1) % 2 == m % 2 else all(h)
+
+
+for s in range(1, 21):
+    for m in range(1, 7):
+        if game(s, '', '', 0, m) == 1:
+            print(s, m)
+            break
+------------------------------------------------------------------------------
+def game(s, c, m):
+    if s >= 22: return c % 2 == m % 2
+    h = [game(s + 1, c + 1, m), game(s + 2, c + 1, m)]
+    if s % 2 != 0: h += [game(s * 2, c + 1, m)]
+    if c == m: return 0
+    return any(h) if (c + 1) % 2 == m % 2 else all(h)
+
+
+for s in range(1, 22):
+    for m in range(1, 6):
+        if game(s, 0, m) == 1:
+            print(s, m)
+            break
+------------------------------------------------------------------------------
+def game(s, c, m):
+    if s >= 51: return c % 2 == m % 2
+    if c == m: return 0
+    h = []
+    if s % 2 == 0: h += [game(s + 1, c + 1, m), game(s + 3, c + 1, m)]
+    else: h += [game(s * 3, c + 1, m)]
+    return any(h) if (c + 1) % 2 == m % 2 else all(h)
+
+
+for s in range(1, 51):
+    for m in range(1, 5):
+        if game(s, 0, m) == 1:
+            print(s, m)
+            break
+------------------------------------------------------------------------------
+# p - супер ход
+def game(s, p, c, m):
+    if s >= 20: return c % 2 == m % 2
+    h = [game(s * 2, p, c + 1, m), game(s + 2, p, c + 1, m)]
+    if p == 0: h += [game(s, 1, c + 1, m)]
+    if c == m: return 0
+    return any(h) if (c + 1) % 2 == m % 2 else all(h)
+
+
+for s in range(1, 20):
+    for m in range(1, 5):
+        if game(s, 0, 0, m) == 1:
+            print(s, m)
+            break
+------------------------------------------------------------------------------
+def game(s1, s2, c, m):
+    if s1 == 0 or s2 == 0: return c % 2 == m % 2
+    h = []
+    if s1 >= 3 and s2 >= 3: h += [game(s1 - 3, s2 - 3, c + 1, m)]
+    if s1 % 2 == 0: h += [game(s1 // 2, s1 // 2, c + 1, m)]
+    if s2 % 2 == 0: h += [game(s2 // 2, s2 // 2, c + 1, m)]
+    if len(h) == 0: return c % 2 == m % 2
+    if c == m: return 0
+    return any(h) if (c + 1) % 2 == m % 2 else all(h)
+
+
+for k in range(1, 32):
+    for m in range(1, 5):
+        if game(32, k, 0, m) == 1:
+            print(k, m)
+            break
+
+
